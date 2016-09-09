@@ -1,0 +1,619 @@
+% Copyright (C) 2016  Mateusz Piotrowski
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+\documentclass[10pt,a4paper,twocolumn]{article}
+
+\usepackage{multicol}
+\usepackage{amsbsy, amssymb, latexsym, amsmath, braket}
+\usepackage[tiny]{titlesec}
+\usepackage[hmargin=0.5cm,vmargin=1.0cm]{geometry}
+\usepackage[utf8x]{inputenc}
+\usepackage{polski}
+\usepackage{scalefnt}
+\usepackage[yyyymmdd,hhmmss]{datetime}
+
+% Potrzebne do algorytmu Euklidesa.
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+
+\newcommand{\angles}[1]{\left\langle #1 \right\rangle}
+
+\titlespacing{\section}{0pt}{0pt}{0pt}
+\titlespacing{\subsection}{0pt}{0pt}{0pt}
+\titlespacing{\subsubsection}{0pt}{0pt}{0pt}
+
+\setlength{\parindent}{0pt}
+% Odległość pomiędzy liniami. Zmniejsz, jeżeli brakuje miejsca.
+\setlength{\parskip}{0.5ex}
+
+\title{Karta wzorów z matematyki dyskretnej}
+
+\begin{document}
+% Rozmiar czcionki.
+\scalefont{.8}
+
+\text{\tiny{
+    Wersja z \today\ o \currenttime\ (\pdfmdfivesum file{./karta-wzorow.tex})
+}}
+
+\section{Sumy}
+
+${S_n = \sum^{n}_{k = 0} a \cdot x^k} = {a \frac{1 - x^{n+1}}{1 - x}}$;
+
+\subsection{Sumowanie przez części}
+
+${\Delta f(x) = f(x + 1) - f(x)}$;
+${\Delta x^{\underline{n}}} = {n x^{\underline{n - 1}}}$;
+${\mathcal{S}^{b}_{a} f}={g |^b_a} = {\sum^{b - 1}_{k = a} f(k)}$;
+${\Delta (rt)} = {r \Delta t + E t \Delta r \text{, gdzie } E t(x)} =
+  {t(x + 1)}$;
+${\mathcal{S}^{b}_{a} r \Delta t}= {r t |^b_a - \mathcal{S}^b_a E t \Delta r}$;
+
+\subsection{Dwumian}
+
+${\binom{n}{k} = {\frac{n^{\underline{k}}}{k!}}}$;
+${\sum_{i = 0}^n \binom{n}{i} = 2^n}$;
+${\sum_{i = 0}^{n} (-1)^i \binom{n}{i} = [ n = 0 ]}$;
+$\binom{n}{k} = \binom{n}{n - k}$;
+
+$\binom{n}{k} = \frac{n}{k} \binom{n - 1}{k - 1}$;
+
+${(x + y)^n = \sum_{i \geq 0} \binom{n}{i} x^i y^{n-i}, n \in \mathbb{N}}$;
+
+${(1 + x)^r = \sum_{i \geq 0} \binom{r}{i} x^i, r \in \mathbb{R}, |x| < 1}$;
+
+$(x + y + z)^n =
+  \sum_{0 \leq a, b \leq n, a+b \leq n} \binom{n}{a,b} x^a y^b z^{n-a-b}$;
+
+$\binom{n}{a,b} = \binom{n}{a}\binom{n-a}{b} = \frac{n!}{a! b! (n - a - b)!}$;
+
+$\binom{n}{k}\binom{k}{i} = \binom{n}{i}\binom{n-i}{k-i}$;
+
+$\binom{n}{k} = \begin{cases}
+    1, k = 0 \text{ lub } k = n \\
+    \binom{n - 1}{k} + \binom{n - 1}{k - 1}, 0 < k < n
+\end{cases}
+$;
+
+% Tożsamość Cauchy'ego.
+Toż. (Cauchy): $\sum^k_{i=0}\binom{n}{i}\binom{m}{k - i} = \binom{n + m}{k}$;
+
+$\text{$\sum$ równoległe: } \sum^k_{i=0} \binom{y + i}{i} =
+  \binom{y + k + 1}{k}$;
+
+$(-1)^i\binom{x}{i} = \binom{i - 1 - x}{i} \text{, bo }  x^{\underline{i}} =
+  (-1)^i(i - 1 - x)^{\underline{i}}$;
+
+$a_n = \sum_i\binom{n}{i}(-1)^i b_i \iff b_n = \dots$;
+
+% Inwersje.
+\subsection{Inwersje}
+
+$\Pi = 1^{\lambda_1}2^{\lambda_2}\dots n^{\lambda_n}$, to $sgn(\Pi) =
+  (-1)^{\Sigma_i\lambda_{2i}}$;
+
+% Liczby Stirlinga I rodzaju.
+\subsection{Liczby Stirlinga}
+
+${n \brack k}$ - kolejność elementów cyklu istotna z dokładnością do cyklicznego
+  przesunięcia.
+
+${n \brack 0} = [ n = 0 ]$;
+${n \brack 1} = (n - 1)!, n > 0$;
+$\sum_k{n \brack k} = n!$;
+
+${n \brack k} = (n-1){n-1 \brack k}+{n-1 \brack k-1}$ dla ${k > 0}$;
+
+% Liczby Stirlinga II rodzaju.
+${n \brace k}$ - podziały n-zbioru na k bloków;
+
+${n \brace 0} = [n = 0]$;
+${n \brace 1} = 1$;
+${n \brace 2} = 2^{n-1}-1$;
+
+${n \brace k} = k{n-1 \brace k} + {n-1 \brace k-1}$ dla ${k > 0}$;
+
+% Własności liczb Stirlinga.
+$x^n = \sum_k{n \brace k} x^{\underline{k}}$;
+
+$x^{\overline{n}} = \sum_k{n \brack k}x^k$;
+
+$(-x)^{\overline{k}} = (-1)^kx^{\overline{k}}$;
+
+$x^n = \sum_k {n \brace k} (-1)^{n-k} x^{\overline{k}}$;
+
+$x^{\underline{n}} = \sum_k {n \brack k} (-1)^{n-k} x^{k}$;
+
+$x^n = \sum_{i,k} {n \brace i}{i \brack k}(-1)^{n-i}x^k$;
+
+$\sum_i{n \brace i}{i \brack k}(-1)^{n-i} = [n=k] =
+  \sum_i{n \brack i}{i \brace k}(-1)^{n-i}$;
+
+$a_n = \sum_i{n \brace i}(-1)^ib_i \iff b_n = \sum_i{n \brack i}(-1)^ia_i$;
+
+% Funkcje tworzące.
+\section{Funkcje tworzące}
+
+$\alpha A(x) + \beta B(x) \leftrightsquigarrow \angles{\alpha a_n + \beta b_n}$;
+
+$x^mA(x) \leftrightsquigarrow
+  \angles{\underbrace{0, \dots, 0}_m, a_0, a_1, \dots}$;
+
+$\frac{A(x) - \sum_{i=0}^{m-1}a_ix^i}{x^m} \leftrightsquigarrow
+  \angles{a_m, a_{m+1}, \dots}$;
+
+$A(x) \cdot B(x) =
+  \sum_n \sum_k a_kb_{n-k}x^n \leftrightsquigarrow
+  \angles{\sum_k a_k b_{n-k}}_n$;
+
+$A'(x) = a_1 + 2a_2x + \dots \leftrightsquigarrow = \angles{(n+1)a_{n+1}}_n$;
+
+$\int_0^xA(t)dt \leftrightsquigarrow \angles{\frac{a_{n-1}}{n}}_{n \geq 1}$;
+
+\subsection{Przykłady funkcji tworzących}
+
+$\angles{1,1,\dots} \leftrightsquigarrow \frac{1}{1-x}$;
+
+$\angles{a_n} \cdot \angles{1,1,\dots} = \angles{a_0 + \dots + a_n}_n$;
+
+$\frac{1}{(1-x)^k} \leftrightsquigarrow \angles{\binom{n + k -1}{k - 1}}_n$;
+
+$ln \frac{1}{1-x} \leftrightsquigarrow
+  \angles{0, 1, \frac{1}{2}, \frac{1}{3}, \dots}$;
+
+\subsection{Wykładnicze funkcje tworzące}
+
+$B_e(x) = \sum_n \frac{b_nx^n}{n!}$;
+
+$A_e(x) \cdot B_e(x) =
+  \sum \left ( \sum_k \binom{n}{k} a_k b_{n-k} \right ) x^n / n!$;
+
+$B'e(x) = \sum_n b_{n+1} x^n/n!$;
+
+$\int^x_0 \sum_{n \geq 0} b_nt^ndt = \sum_{n \geq 1} b_{n-1}x^n/n!$;
+
+$\frac{C}{(1-\lambda x)^k} =
+  \sum_{n\geq 0} C \binom{n + k - 1}{k - 1} \lambda^n x^n$;
+
+% TODO: Dodaj przykład rozwiązania równania rekurencyjnego przy pomocy f.t.
+
+
+Proste ciągi i ich funkcje tworzące:
+\begin{tabular}{ | l | l | l |  }
+    \hline
+    $<1,0,0,\dots>$
+      & $\sum_{n \geq 0}[n=0] z^n$
+      & $1$ \\
+    $<0,\dots, 0,1,0,\dots>$
+      & $\sum_{n \geq 0}[n=m] z^n$
+      & $z^m$ \\
+    $<1,1,1,1>$
+      & $\sum_{n \geq 0} z^n$
+      & $\frac{1}{1-z}$ \\
+    $<1,-1,1,-1>$
+      & $\sum_{n \geq 0} (-z)^n$
+      & $\frac{1}{1+z}$ \\
+    co $m$-te
+      & $\sum_{n \geq 0} [m | n]z^n$
+      & $\frac{1}{1-z^m}$ \\
+    $<1,2,3,4>$
+      & $\sum_{n \geq 0} (n+1)z^n$
+      & $\frac{1}{(1-z)^2}$ \\
+    $<1,c,\frac{c}{2},\frac{c}{2}>$
+      & $\sum_{n \geq 0} \binom{c}{n}z^n$
+      & $(1+z)^c$ \\
+    $<1,c,c^2,c^3>$
+      & $\sum_{n \geq 0} c^n z^n$
+      & $\frac{1}{1-cz}$ \\
+    $<1,\frac{m+1}{m},\frac{m+2}{m},>$
+      & $\sum_{n \geq 0} \binom{m+n}{m} z^n$
+      & $ \frac{1}{(1-z)^{m+1}}$ \\
+    $<0,1,\frac{1}{2},\frac{1}{3}>$
+      & $n \geq 1$
+      & $\ln \frac{1}{(1-z)}$ \\
+    \hline
+\end{tabular}
+
+\section{Magiczne liczby}
+
+\begin{tiny}
+      2      3      5      7     11     13     17     19     23     29
+     31     37     41     43     47     53     59     61     67     71
+     73     79     83     89     97    101    103    107    109    113
+    127    131    137    139    149    151    157    163    167    173
+    179    181    191    193    197    199    211    223    227    229
+    233    239    241    251    257    263    269    271    277    281
+    283    293    307    311    313    317    331    337    347    349
+    353    359    367    373    379    383    389    397    401    409
+    419    421    431    433    439    443    449    457    461    463
+    467    479    487    491    499    503    509    521    523    541
+    547    557    563    569    571    577    587    593    599    601
+    607    613    617    619    631    641    643    647    653    659
+    661    673    677    683    691    701    709    719    727    733
+    739    743    751    757    761    769    773    787    797    809
+    811    821    823    827    829    839    853    857    859    863
+    877    881    883    887    907    911    919    929    937    941
+    947    953    967    971    977    983    991    997   1009   1013
+   1019   1021   1031   1033   1039   1049   1051   1061   1063   1069
+   1087   1091   1093   1097   1103   1109   1117   1123   1129   1151
+   1153   1163   1171   1181   1187   1193   1201   1213   1217   1223
+   1229   1231   1237   1249   1259   1277   1279   1283   1289   1291
+   1297   1301   1303   1307   1319   1321   1327   1361   1367   1373
+   1381   1399   1409   1423   1427   1429   1433   1439   1447   1451
+   1453   1459   1471   1481   1483   1487   1489   1493   1499   1511
+   1523   1531   1543   1549   1553   1559   1567   1571   1579   1583
+   1597   1601   1607   1609   1613   1619   1621   1627   1637   1657
+   1663   1667   1669   1693   1697   1699   1709   1721   1723   1733
+   1741   1747   1753   1759   1777   1783   1787   1789   1801   1811
+   1823   1831   1847   1861   1867   1871   1873   1877   1879   1889
+   1901   1907   1913   1931   1933   1949   1951   1973   1979   1987
+   1993   1997   1999   2003   2011   2017   2027   2029   2039   2053
+   2063   2069   2081   2083   2087   2089   2099   2111   2113   2129
+   2131   2137   2141   2143   2153   2161   2179   2203   2207   2213
+   2221   2237   2239   2243   2251   2267   2269   2273   2281   2287
+   2293   2297   2309   2311   2333   2339   2341   2347   2351   2357
+   2371   2377   2381   2383   2389   2393   2399   2411   2417   2423
+   2437   2441   2447   2459   2467   2473   2477   2503   2521   2531
+   2539   2543   2549   2551   2557   2579   2591   2593   2609   2617
+   2621   2633   2647   2657   2659   2663   2671   2677   2683   2687
+   2689   2693   2699   2707   2711   2713   2719
+\end{tiny}
+
+\subsection{Liczby Catalana}
+
+$C_n$ - liczba nawiasowań w wyr. $x_0 \cdot x_1 \cdot \dots \cdot x_n$;
+
+$C_n = \sum_kC_kC_{n-1-k} + [n=0]$,
+  skąd $C(x) = \sum_n C_nx^n = x(C(x))^2 + 1, C(0) = 1$,
+  więc $C(x) = \frac{1 - \sqrt{1-4x}}{2x}$, a zatem $C(x) =
+  \sum_{k\geq 0} \frac{1}{k+1}\binom{2k}{k}x^k$;
+
+\subsection{Liczby Bella}
+
+${B_n = \sum_k{n \brace k}}$ - łączna l. podziałów n-zbioru na bloki;
+
+${B_{n+1} = \sum_k \binom{n}{k} B_k}$, skąd $B'(x) = e^xB(x), B(0) = 1$,
+  gdzie $B(x) = \sum_n B_nx^n/n!$. Całkujemy i dostajemy $ln B = e^x + c$,
+  skąd $B(x) = e^{e^x-1} =
+  \sum_{n=0}^\infty \left ( {1 \over e} \sum_{k=0}^\infty {k^n \over k!}\right)
+  {x^n \over n!}$;
+
+% Enumeratory.
+\subsection{Enumeratory kombinacji}
+
+$\underbrace{(1+t)\dots(1+t)}_n = \sum_r\binom{n}{r}t^r$;
+
+Kombinacja z dowolnymi powt.: $(1+t+t^2+\dots)^n=(1-t)^{-n}=
+  \sum_r\binom{-n}{r}{-t}^r=\sum_r\binom{n+r-1}{r}t^r$;
+
+Każdy elem. co najmniej raz: $(t+t^2+\dots)^n = t^n\sum_r {n+r-1 \over r}t^r =
+  \sum^\infty_{r=n}\binom{r-1}{n-1}t^r$;
+
+\subsection{Enumeratory permutacji}
+
+r-permu. bez powt.: $(1+t)^n = \sum_rn^{\underline{r}}{t^r \over r!}$;
+
+Dow. l. powt.: ${(1+t+t^2/2! + \dots)^n} = {(e^{t})^n} =
+  {\sum_rn^r{t^r \over r!}}$;
+
+Każdy elem. co najmniej raz: $(t + t^2/2! + \dots)^n = (e^t - 1)^n =
+  \sum^\infty_{r=0}\frac{t^r}{r!}\sum^n_{j=0}\binom{n}{j}(-1)^j(n-j)^r$;
+
+Ciąg $A$, $B$, $C$ długości $r$ t., że $\#A>0$, $2|\#B$. Traktuj jako r-permu.
+  z powt.:
+  $\overbrace{(e^t - 1)}^A\cdot\overbrace{((e^t - e^{-t})/2)}^B
+  \cdot\overbrace{e^t}^C =
+  \sum_{r \geq 1} {1 \over 2}(3^r - 2^r - 1){t^r \over r!}$;
+
+\section{Zasada włączania-wyłączania}
+
+Liczba elem. o $j$ własn.: $S_j =
+  \sum_{1 \leq i_1 < \dots < i_j \leq n} |A_{i_1} \cap \dots \cap A_{i_j}|$;
+
+Liczba elem. o dokładnie $k$ własn.:
+  $D(k) = \sum_{j\geq k} \binom{j}{k} (-1)^{j-k}S_j$;
+
+Zliczanie $n$-nieporządków: $A_i = \left\{n\text{-perm.} | f(i) = i \right\}$.
+  Wtedy $|A_{i_1} \cap \dots \cap A_{i_j}| = (n-j)!$, zatem
+  $D(0) = \sum^n_j(-1)^j\binom{n}{j}(n-j)!=n!\sum^n_j(-1)^j{1 \over j!}$;
+
+% TODO: Wieżomiany.
+
+\section{Podział liczby / enumerator podziałów}
+
+Podział liczby $n$, to przedstawienie $n$ jako sumy nierosnących dod. skład.;
+
+L. podz. $n$ na $\leq k$ skład. $\leftrightsquigarrow$
+  l. podz. $n+k$ na dokł. $k$ skład.;
+
+Enum. podziałów $P(x) = \sum_nP_nx^n =
+  (1+x+x^2+\dots)\cdot(1+x^2+x^4+\dots)\dots(1+x^k+\dots)\dots =
+  \frac{1}{(1-x)(1-x^2)\dots(1-x^k)\dots}$, gdzie wybranie z $k$-tego nawiasu
+  $x^{ik} \leftrightsquigarrow$ wzięciu do podziału $i$ razy składnika $k$;
+
+Enum. podz. o składnikach $\leq k$: $p_{\leq k} (x) =
+  \frac{1}{(1-x)(1-x^2)\dots(1-x^k)}$;
+
+Enum. podz. 1 zł na grosze:
+  $\left [ x^{100} \right ]
+  \frac{1}{(1-x)(1-x^2)(1-x^5)(1-x^{10})(1-x^{20})(1-x^{50})}$;
+
+Enum. podz. na składniki $>1$: $\frac{1}{(1-x^2)(1-x^3)\dots}=(1-x)P(x) =
+  P_n - P_{n-1}, n>0$;
+
+Enum. podz. o różnych s.: $r(x) = (1+x)(1+x^2)(1+x^3)\dots$;
+
+Enum. podz. o nieparz. s.: $n(x)=\frac{1}{(1-x)(1-x^3)\dots}$;
+
+Tw.: $\#$ podz. $n$ na różne s. $= \#$ podz. na nieparz. s.: $n(x) = r(x)$;
+
+% TODO: Przykład użycia.
+Toż. Eulera: $nP_n = \sum_{k=0}^{n-1}\sigma(n-k)P_k$,
+  gdzie $\sigma = \sum_{k|n}k$;
+
+% Grafy.
+\section{Grafy}
+
+Lem. o uściskach dł.: $\sum_{v\in V} deg(v) = 2|E|$;
+
+$H$ podgrafem indukowanym $G
+  \iff \forall_{u,v \in V[H]} \set{u, v} \in E[G] \implies \set{u, v}\in E[H]$;
+
+Droga nie powtarza krawędzi, a ścieżka wierzchołków;
+
+$G$ spójny $\iff \forall_{u,v\in V[G]} \exists e_{uv}$;
+
+$G$ $k$-reguralny $\iff \forall_v deg(v) = k$;
+
+$G$ dwudzielny, gdy $V[G] = V_1 \cup V_2, V_1 \cap V_2 = \emptyset$ i każda
+  krawędź ma jeden koniec w $V_1$, a drugi w $V_2$;
+
+$K_{|V|, |U|}$ pełny dwudzielny, gdy $E=\set{\set{v, u}, v \in V, u \in U}$;
+
+$v$ rozcinający, gdy usunięcie $v$ zwiększa l. spójnych s.;
+
+Tw.: $G$ dwudzielny $\iff$ nie zawiera cykli nieparz. dł.;
+
+\subsection{Cykle}
+
+C. E. - krawędzie; C. H. - wierzchołki; Turniej - skierowana klika;
+
+Tw. Eulera: $G$ ma c. E. $\iff \forall_{v \in V[G]} 2|deg(v)$;
+
+Tw.: Silnie spójny $G$ ma skierowany c. E.
+  $\iff \forall_{v \in V[G]} deg_{in}(v) = deg_{out}(v)$;
+
+$G$ ma c. H., to po usunięciu dow. k wierz. rozpada się na co najw.
+  k spójnych s.;
+
+$G = \angles{V, U; E}$ dwudzielny ma c. H., to $|V|=|U|$;
+
+Tw.: Każdy turniej jest półhamilton.;
+
+Tw.: Turniej spójny, to ma c. H.;
+
+Tw. (Ore): $n=|V|\geq 3$ i
+  $\forall_{\set{v, w} \not\in E} deg(v) + deg(w) \geq n$, to $G$ ma c. H.;
+
+\subsection{Drzewa}
+
+Tw. (Cayley): Jest $n^{n-2}$ etykietowanych drzew $n$-wierzchołkowych;
+
+\subsection{Planarność}
+
+Wz. Eulera: $n - m + f = 2$, gdzie $m = |E[G]|$;
+
+Tw.: W grafie plan. z $n \geq 3$ mamy $m \leq 3n -6$;
+
+Tw. Kuratowskiego: $G$ nieplan. $\iff G$ zawiera podgraf homeomorficzny
+  z $K_{3,3}$ lub z $K_5$ (homeomorficzny, czyli
+  izomorficzny po ew. dołożeniu wierzchołków na krawędziach);
+
+$G$ planarny $\implies \exists_{v \in G[V]} deg(v) \leq 5$;
+
+\subsection{Kolorowanie wierzchołków}
+
+Kolorowanie $G$ za pomocą $k$ kolorów, to
+  $f: V[G] \rightarrow \set{1, \dots, k}$ t., że $f(u) \neq f(v)$ dla
+  $\set{u, v} \in E[G]$. Najm. k t., że $\exists k$-kolorowanie $G$, to liczba
+  chromatyczna $\chi (G)$.
+
+$\chi(G) \leq 2 \Leftrightarrow G$ dwudzielny;
+
+$\chi(G) \leq k \Leftrightarrow \chi(G) \leq k$ dla każdej dwuspójnej s. $B$
+  grafu $G$;
+
+Tw. o 4 barwach: $G$ plan. $\implies\chi(G)\leq 4$;
+
+Tw. Brooksa: $G$ spójny, nie cykl nieparz. dł., nie klika, to
+  $\chi(G) \leq \Delta$, gdzie $\Delta$, to maks. stop. wierz. w $G$.;
+
+Tw.: $\chi(G) \leq \Delta + 1$;
+
+$f_G(t)$, to liczba kolorowań $G$ za pomocą $t$ kolorów.
+
+$f_{\overline{K_n}}(t) = t^n$; $f_{K_n} = t^{\underline{n}}$
+
+Tw.: $e = \set{v, w} \not\in E[G]$, to $f_G(t)=f_{G\cup e}(t) + f_{G/e}(t)$.
+
+\subsection{Kolorowanie krawędzi}
+
+Funkcja $f: E[G] \rightarrow \set{1, \dots, k}$, to kolorowanie krawędziowe,
+  jeśli kraw. incydentne mają różne kolory. Indeks chromatyczny $\chi_e(G)$, to
+  najmniejsze $k$, dla którego istnieje $k$-kolorowanie kraw.
+
+Tw. Vizinga: $\forall_G \chi_e(G) \leq \Delta(G) +1$;
+
+Tw. (K{\"o}nig): $G$ dwudzielny, to $\chi_e(G) = \Delta(G)$;
+
+\subsection{Systemy różnych reprezentantów}
+
+SSR dla rodziny zbiorów $\angles{A_i}_{i\in I},$ to ciąg elem.
+  $\angles{a_i}_{i\in I}$ t., że
+  $\forall_{i\in I} a_i \in A_i$ oraz $a_i \neq a_j$
+  (skojarzenia w g. dwudzielnym);
+
+Tw. (Hall): SRR dla skończonej r. zb. skończonych $\angles{A_i}_{i=1}^n,$
+  istnieje
+  $\iff \forall_{J\subseteq\set{1,\dots,n}} |\bigcup_{j\in J}A_j| \geq |J|$;
+
+$G$ dwudzielny $r$-regularny $\Rightarrow r$-kolorowalny kraw.;
+
+Tw.: Podziały $\mathcal{A}$ i $\mathcal{B}$ mają wspólny SRR $\Leftrightarrow
+  \forall_{J\subseteq I} |\bigcup_{j\in J}g(A_j)| \geq |J|$, gdzie
+  $g(C) = \set{j | C \cap B_j \neq \emptyset}$;
+
+$A_1 \cup \dots \cup A_n = B_1 \cup \dots \cup B_n$ i
+  $\forall_{1 \leq i \leq n}|A_i| = |B_i| =r \Rightarrow \mathcal{A}$ i
+  $\mathcal{B}$ mają SRR;
+
+\section{Teoria liczb}
+
+% NWD.
+$NWD(a,b) = min_{+}\set{ax+by | x,y\in \mathbb{Z}}$;
+
+$a \perp b \Leftrightarrow NWD(a,b)=1$;
+
+% Algorytm Euklidesa.
+Alg. Euklidesa: $NWD(a,b)=ax+by$. Jeśli $b=0$, to
+  $\angles{x,y} \angles{1,0}$, wpp
+  $NWD(a,b) = NWD(b, a \mod b) = bx' + (a \mod b)y'$
+  ($\angles{x,y} \leftarrow \angles{y', x' - y'\cdot\lfloor{a/b}\rfloor}$);
+
+% Tabelka z przykładem działania algorytmu Euklidesa.
+% TODO: Dodaj ramkę.
+\begin{tabular}{c c c c}
+    20& 56 & 3\tikzmark{aedst3} &-1 \\
+    16& 20 & -1\tikzmark{aedst2} &\tikzmark{aesrc3}1 \\
+    4 & 16 & 1\tikzmark{aedst1} &\tikzmark{aesrc2}0 \\
+    0\tikzmark{aesrc0} & 4 &\tikzmark{aedst0}0 & \tikzmark{aesrc1}1 \\
+\end{tabular}
+\begin{tikzpicture}[overlay, remember picture, yshift=.25\baselineskip,
+    shorten >=.5pt, shorten <=.5pt]
+    \draw [->] ({pic cs:aesrc0}) [bend left] to ({pic cs:aedst0});
+    \draw [->] ([yshift=.75pt]{pic cs:aesrc1}) -- ({pic cs:aedst1});
+    \draw [->] ([yshift=.75pt]{pic cs:aesrc2}) -- ({pic cs:aedst2});
+    \draw [->] ([yshift=.75pt]{pic cs:aesrc3}) -- ({pic cs:aedst3});
+\end{tikzpicture}
+
+% Podstawowe wiadomości z teorii liczb.
+$a = \prod^m_{i=1}p_i$;
+
+${a | bc \land a \perp b} \Rightarrow {a | c}$
+
+${NWW(a,b)} = {ab/NWD(a,b)} = {\prod^k_{i=1}p_i^{max(\alpha_i, \beta_i)}}$;
+
+${a \equiv b \pod{n}} \land {c \equiv d \pmod{n}} \Rightarrow
+  {a+c\equiv b+d \pmod{n}} \land {a\cdot c \equiv b\cdot d \pmod{n}}$;
+
+${d \perp n} \land {ad \equiv bd \pmod{n}} \Rightarrow {a \equiv b \pmod{n}}$;
+
+${ad \equiv bd \pmod{nd}} \Leftrightarrow {a\equiv b \pmod{n}}$;
+
+${b = a^{-1} \mod n} \Leftrightarrow {ab \equiv 1 \pmod{n}}$;
+
+${n \perp m} \implies
+  {\left( a\equiv b \pmod{n} \land a \equiv b \pmod{m} \Leftrightarrow
+  a\equiv b \pmod{nm} \right)}$;
+
+% Chińskie twierdzenie o resztach.
+\framebox{\vbox{
+    ChTOR: ${n = n_1\dots n_k}, {n_i \perp n_j}$, to
+      $\forall_{a_1, \dots, a_k}\exists a\in\set{0,\dots,n-1}$ t., że
+      $a\equiv a_i \pmod{n_i}$ dla $i=1,\dots,k$;
+
+    % Przykład użycia chińskiego twierdzenia o resztach.
+    % Źródło: wazniak.mimuw.edu.pl:Matematyka dyskretna 1: Wykład 11
+    Układ: $x \equiv_3 2$, $x \equiv_10 7$, $x \equiv_11 10$, $x \equiv_7 1$.
+      Spr. warunków ChTOR:
+      $NWD(3,10)=NWD(3,11)=NWD(3,7)=NWD(10,11)=NWD(10,7)=NWD(11,7)=1$.
+      $N = 3\cdot 7\cdot 10\cdot 11 = 2310$,
+      $N_1 = \frac{2310}{3}=770$,
+      $N_2 = \frac{2310}{10}=231$,
+      $N_3 = 210$,
+      $N_4 = 330$.
+      R. alg. Eukl.:
+      $NWD(3, 770) = 1 = 257\cdot 3 - 1\cdot 770$, $x_1=-1\equiv_3 2$,
+      $NWD(10, 231) = 1 = -23\cdot 10 + 1\cdot 231$, $x_2=1$,
+      $NWD(11,210) = -19\cdot 11 + 1 \cdot 210$, $x_3 = 1$,
+      $NWD(7,330) = -47\cdot 7 + 1\cdot 330$, $x_4 = 1$.
+      Zatem $x = 2\cdot 2 \cdot 770 + 7\cdot 1\cdot 231 + 10\cdot 1\cdot 210 +
+      1\cdot 1\cdot 330$;
+}}
+
+% Małe twierdzenie Fermata.
+MTF: ${p\in \mathbb{P} \land p\not | a} \Rightarrow a^{p-1} \equiv 1 \pmod{p}$,
+  inaczej $a^p \equiv a \pmod{p}$;
+
+% Funkcja Eulera.
+F. Eulera: $\phi: \mathbb{N} \rightarrow \mathbb{N}$ t., że
+  $\phi(n)=|\mathbb{Z}^*_n|=|\set{1\leq k\leq n : k \perp n}|$;
+
+$p \in \mathbb{P} \Rightarrow \phi(p^k)=p^k-p^{k-1}$;
+
+$m\perp n \Rightarrow \phi(mn) = \phi(m)\phi(n)$;
+
+$\phi(n) = n\prod_{\mathbb{P} \ni p | n}(1- 1/p)$;
+
+$\sum_{d|m}\phi(d) = m$;
+
+% Twierdzenie Eulera.
+Tw. Eulera: $a\perp n \Rightarrow a^{\phi(n)} \equiv 1 \pmod{n}$;
+
+% Twierdzenie Wilsona.
+
+Tw. Wilsona: $(p-1)! \equiv -1 \pmod{p}$;
+
+% TODO: RSA.
+
+% Test Millera-Rabina.
+Test Millera-Rabina: $\exists_{0<a<n}a^{n-1}\not\equiv 1 \pmod{n} \Rightarrow
+  n \not\in \mathbb{P}$ (słaby, bo liczby Carmichaela);
+
+% TODO: Opis liczb Carmichaela.
+
+% TODO: Faktoryzajca metodą Fermata.
+
+% TODO: Faktoryzacja metodą "p-1" Pollarda.
+
+\section{Teoria grup}
+
+$G = \angles{e, \cdot}$; łączność, elem. neutr., odwrotność, przemienność*;
+
+Podgrupa grupy $G$, to podzb. zamkn. na $\cdot$ i $^{-1}$;
+
+Podgr. generowana przez $A$, to przecięcie wszystkich podgr. $G \supseteq A$;
+
+$G(A)$ składa się ze skończonych iloczynów $g_1\dots g_k$,
+  $g_i\in A \lor g_i^{-1} \in A$;
+
+Grupa cykliczna, czyli gen. przez 1 elem.;
+
+% Twierdzenie (Lagrange).
+Tw. (Lagrange): Rząd podgr. $H$ gr. skończonej $G$ dzieli rząd $G$;
+
+$G$ cykliczna ma $\phi(n)$ gen;
+
+Tw.: $s(d)$, to l. elem. rzędu $d$ w $G$. $s(d) =$ if $d \not{|} n$ then $0$
+  else $\phi(d)$;
+
+% Twierdzenie (Cayley).
+Tw. (Cayley): $S(Y)$, to zbiór bijekcji $Y \rightarrow Y$ ze składaniem
+  ($S_n$ dla $Y=\set{1,\dots,n}$). Każda gr. rzędu $n$ jest izomorf. z pewną
+  podgr.  $S_n$;
+
+% TODO: Dokończyć teorię grup. Slajd 216.
+
+\end{document}
