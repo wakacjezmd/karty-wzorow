@@ -1,18 +1,24 @@
 # Karty wzorów z matematyki dyskretnej
 
+## Instalacja pakietu LaTeX
+
+### macOS
+
+Zainstaluj `pdflatex` z dystrybucji `mactex`:
+
+```bash
+brew install brew-cask
+brew cask install mactex
+```
+
+### Ubuntu 16.10
+
+```bash
+sudo apt-get install texlive-full
+```
+
 ## Generowanie plików PDF
 
-### OS X
-
-1. Zainstaluj `pdflatex` z dystrybucji `mactex`:
-
-    ```
-    brew install brew-cask
-    brew cask install mactex
-    ```
-
-2. Wygeneruj plik PDF:
-
-   ```
-   pdflatex karta-wzorow.tex
-   ```
+```bash
+pdflatex karta-wzorow.tex
+```
