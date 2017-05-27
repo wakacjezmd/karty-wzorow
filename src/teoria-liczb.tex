@@ -1,0 +1,108 @@
+\section{Teoria liczb}
+
+% NWD.
+$NWD(a,b) = min_{+}\set{ax+by | x,y\in \mathbb{Z}}$;
+
+$a \perp b \Leftrightarrow NWD(a,b)=1$;
+
+% Algorytm Euklidesa.
+Alg. Euklidesa: $NWD(a,b)=ax+by$. Jeśli $b=0$, to
+  $\angles{x,y} \angles{1,0}$, wpp
+  $NWD(a,b) = NWD(b, a \mod b) = bx' + (a \mod b)y'$
+  ($\angles{x,y} \leftarrow \angles{y', x' - y'\cdot\lfloor{a/b}\rfloor}$);
+
+% Tabelka z przykładem działania algorytmu Euklidesa.
+% TODO: Dodaj ramkę.
+\begin{tabular}{c c c c}
+    20& 56 & 3\tikzmark{aedst3} &-1 \\
+    16& 20 & -1\tikzmark{aedst2} &\tikzmark{aesrc3}1 \\
+    4 & 16 & 1\tikzmark{aedst1} &\tikzmark{aesrc2}0 \\
+    0\tikzmark{aesrc0} & 4 &\tikzmark{aedst0}0 & \tikzmark{aesrc1}1 \\
+\end{tabular}
+\begin{tikzpicture}[overlay, remember picture, yshift=.25\baselineskip,
+    shorten >=.5pt, shorten <=.5pt]
+    \draw [->] ({pic cs:aesrc0}) [bend left] to ({pic cs:aedst0});
+    \draw [->] ([yshift=.75pt]{pic cs:aesrc1}) -- ({pic cs:aedst1});
+    \draw [->] ([yshift=.75pt]{pic cs:aesrc2}) -- ({pic cs:aedst2});
+    \draw [->] ([yshift=.75pt]{pic cs:aesrc3}) -- ({pic cs:aedst3});
+\end{tikzpicture}
+
+% Podstawowe wiadomości z teorii liczb.
+$a = \prod^m_{i=1}p_i$;
+
+${a | bc \land a \perp b} \Rightarrow {a | c}$
+
+${NWW(a,b)} = {ab/NWD(a,b)} = {\prod^k_{i=1}p_i^{max(\alpha_i, \beta_i)}}$;
+
+${a \equiv b \pod{n}} \land {c \equiv d \pmod{n}} \Rightarrow
+  {a+c\equiv b+d \pmod{n}} \land {a\cdot c \equiv b\cdot d \pmod{n}}$;
+
+${d \perp n} \land {ad \equiv bd \pmod{n}} \Rightarrow {a \equiv b \pmod{n}}$;
+
+${ad \equiv bd \pmod{nd}} \Leftrightarrow {a\equiv b \pmod{n}}$;
+
+${b = a^{-1} \mod n} \Leftrightarrow {ab \equiv 1 \pmod{n}}$;
+
+${n \perp m} \implies
+  {\left( a\equiv b \pmod{n} \land a \equiv b \pmod{m} \Leftrightarrow
+  a\equiv b \pmod{nm} \right)}$;
+
+% Chińskie twierdzenie o resztach.
+\framebox{\vbox{
+    ChTOR: ${n = n_1\dots n_k}, {n_i \perp n_j}$, to
+      $\forall_{a_1, \dots, a_k}\exists a\in\set{0,\dots,n-1}$ t., że
+      $a\equiv a_i \pmod{n_i}$ dla $i=1,\dots,k$;
+
+    % Przykład użycia chińskiego twierdzenia o resztach.
+    % Źródło: wazniak.mimuw.edu.pl:Matematyka dyskretna 1: Wykład 11
+    Układ: $x \equiv_3 2$, $x \equiv_10 7$, $x \equiv_11 10$, $x \equiv_7 1$.
+      Spr. warunków ChTOR:
+      $NWD(3,10)=NWD(3,11)=NWD(3,7)=NWD(10,11)=NWD(10,7)=NWD(11,7)=1$.
+      $N = 3\cdot 7\cdot 10\cdot 11 = 2310$,
+      $N_1 = \frac{2310}{3}=770$,
+      $N_2 = \frac{2310}{10}=231$,
+      $N_3 = 210$,
+      $N_4 = 330$.
+      R. alg. Eukl.:
+      $NWD(3, 770) = 1 = 257\cdot 3 - 1\cdot 770$, $x_1=-1\equiv_3 2$,
+      $NWD(10, 231) = 1 = -23\cdot 10 + 1\cdot 231$, $x_2=1$,
+      $NWD(11,210) = -19\cdot 11 + 1 \cdot 210$, $x_3 = 1$,
+      $NWD(7,330) = -47\cdot 7 + 1\cdot 330$, $x_4 = 1$.
+      Zatem $x = 2\cdot 2 \cdot 770 + 7\cdot 1\cdot 231 + 10\cdot 1\cdot 210 +
+      1\cdot 1\cdot 330$;
+}}
+
+% Małe twierdzenie Fermata.
+MTF: ${p\in \mathbb{P} \land p\not | a} \Rightarrow a^{p-1} \equiv 1 \pmod{p}$,
+  inaczej $a^p \equiv a \pmod{p}$;
+
+% Funkcja Eulera.
+F. Eulera: $\phi: \mathbb{N} \rightarrow \mathbb{N}$ t., że
+  $\phi(n)=|\mathbb{Z}^*_n|=|\set{1\leq k\leq n : k \perp n}|$;
+
+$p \in \mathbb{P} \Rightarrow \phi(p^k)=p^k-p^{k-1}$;
+
+$m\perp n \Rightarrow \phi(mn) = \phi(m)\phi(n)$;
+
+$\phi(n) = n\prod_{\mathbb{P} \ni p | n}(1- 1/p)$;
+
+$\sum_{d|m}\phi(d) = m$;
+
+% Twierdzenie Eulera.
+Tw. Eulera: $a\perp n \Rightarrow a^{\phi(n)} \equiv 1 \pmod{n}$;
+
+% Twierdzenie Wilsona.
+
+Tw. Wilsona: $(p-1)! \equiv -1 \pmod{p}$;
+
+% TODO: RSA.
+
+% Test Millera-Rabina.
+Test Millera-Rabina: $\exists_{0<a<n}a^{n-1}\not\equiv 1 \pmod{n} \Rightarrow
+  n \not\in \mathbb{P}$ (słaby, bo liczby Carmichaela);
+
+% TODO: Opis liczb Carmichaela.
+
+% TODO: Faktoryzajca metodą Fermata.
+
+% TODO: Faktoryzacja metodą "p-1" Pollarda.

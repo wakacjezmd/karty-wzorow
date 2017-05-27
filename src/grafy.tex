@@ -1,0 +1,114 @@
+\section{Grafy}
+
+Lem. o uściskach dł.: $\sum_{v\in V} deg(v) = 2|E|$;
+
+$H$ podgrafem indukowanym $G
+  \iff \forall_{u,v \in V[H]} \set{u, v} \in E[G] \implies \set{u, v}\in E[H]$;
+
+Droga nie powtarza krawędzi, a ścieżka wierzchołków;
+
+$G$ spójny $\iff \forall_{u,v\in V[G]} \exists e_{uv}$;
+
+$G$ $k$-reguralny $\iff \forall_v deg(v) = k$;
+
+$G$ dwudzielny, gdy $V[G] = V_1 \cup V_2, V_1 \cap V_2 = \emptyset$ i każda
+  krawędź ma jeden koniec w $V_1$, a drugi w $V_2$;
+
+$K_{|V|, |U|}$ pełny dwudzielny, gdy $E=\set{\set{v, u}, v \in V, u \in U}$;
+
+$v$ rozcinający, gdy usunięcie $v$ zwiększa l. spójnych s.;
+
+Tw.: $G$ dwudzielny $\iff$ nie zawiera cykli nieparz. dł.;
+
+\subsection{Cykle}
+
+C. E. - krawędzie; C. H. - wierzchołki; Turniej - skierowana klika;
+
+Tw. Eulera: $G$ ma c. E. $\iff \forall_{v \in V[G]} 2|deg(v)$;
+
+Tw.: Silnie spójny $G$ ma skierowany c. E.
+  $\iff \forall_{v \in V[G]} deg_{in}(v) = deg_{out}(v)$;
+
+$G$ ma c. H., to po usunięciu dow. k wierz. rozpada się na co najw.
+  k spójnych s.;
+
+$G = \angles{V, U; E}$ dwudzielny ma c. H., to $|V|=|U|$;
+
+Tw.: Każdy turniej jest półhamilton.;
+
+Tw.: Turniej spójny, to ma c. H.;
+
+Tw. (Ore): $n=|V|\geq 3$ i
+  $\forall_{\set{v, w} \not\in E} deg(v) + deg(w) \geq n$, to $G$ ma c. H.;
+
+\subsection{Drzewa}
+
+Tw. (Cayley): Jest $n^{n-2}$ etykietowanych drzew $n$-wierzchołkowych;
+
+\subsection{Planarność}
+
+Wz. Eulera: $n - m + f = 2$, gdzie $m = |E[G]|$;
+
+Tw.: W grafie plan. z $n \geq 3$ mamy $m \leq 3n -6$;
+
+Tw. Kuratowskiego: $G$ nieplan. $\iff G$ zawiera podgraf homeomorficzny
+  z $K_{3,3}$ lub z $K_5$ (homeomorficzny, czyli
+  izomorficzny po ew. dołożeniu wierzchołków na krawędziach);
+
+$G$ planarny $\implies \exists_{v \in G[V]} deg(v) \leq 5$;
+
+\subsection{Kolorowanie wierzchołków}
+
+Kolorowanie $G$ za pomocą $k$ kolorów, to
+  $f: V[G] \rightarrow \set{1, \dots, k}$ t., że $f(u) \neq f(v)$ dla
+  $\set{u, v} \in E[G]$. Najm. k t., że $\exists k$-kolorowanie $G$, to liczba
+  chromatyczna $\chi (G)$.
+
+$\chi(G) \leq 2 \Leftrightarrow G$ dwudzielny;
+
+$\chi(G) \leq k \Leftrightarrow \chi(G) \leq k$ dla każdej dwuspójnej s. $B$
+  grafu $G$;
+
+Tw. o 4 barwach: $G$ plan. $\implies\chi(G)\leq 4$;
+
+Tw. Brooksa: $G$ spójny, nie cykl nieparz. dł., nie klika, to
+  $\chi(G) \leq \Delta$, gdzie $\Delta$, to maks. stop. wierz. w $G$.;
+
+Tw.: $\chi(G) \leq \Delta + 1$;
+
+$f_G(t)$, to liczba kolorowań $G$ za pomocą $t$ kolorów.
+
+$f_{\overline{K_n}}(t) = t^n$; $f_{K_n} = t^{\underline{n}}$
+
+Tw.: $e = \set{v, w} \not\in E[G]$, to $f_G(t)=f_{G\cup e}(t) + f_{G/e}(t)$.
+
+\subsection{Kolorowanie krawędzi}
+
+Funkcja $f: E[G] \rightarrow \set{1, \dots, k}$, to kolorowanie krawędziowe,
+  jeśli kraw. incydentne mają różne kolory. Indeks chromatyczny $\chi_e(G)$, to
+  najmniejsze $k$, dla którego istnieje $k$-kolorowanie kraw.
+
+Tw. Vizinga: $\forall_G \chi_e(G) \leq \Delta(G) +1$;
+
+Tw. (K{\"o}nig): $G$ dwudzielny, to $\chi_e(G) = \Delta(G)$;
+
+\subsection{Systemy różnych reprezentantów}
+
+SSR dla rodziny zbiorów $\angles{A_i}_{i\in I},$ to ciąg elem.
+  $\angles{a_i}_{i\in I}$ t., że
+  $\forall_{i\in I} a_i \in A_i$ oraz $a_i \neq a_j$
+  (skojarzenia w g. dwudzielnym);
+
+Tw. (Hall): SRR dla skończonej r. zb. skończonych $\angles{A_i}_{i=1}^n,$
+  istnieje
+  $\iff \forall_{J\subseteq\set{1,\dots,n}} |\bigcup_{j\in J}A_j| \geq |J|$;
+
+$G$ dwudzielny $r$-regularny $\Rightarrow r$-kolorowalny kraw.;
+
+Tw.: Podziały $\mathcal{A}$ i $\mathcal{B}$ mają wspólny SRR $\Leftrightarrow
+  \forall_{J\subseteq I} |\bigcup_{j\in J}g(A_j)| \geq |J|$, gdzie
+  $g(C) = \set{j | C \cap B_j \neq \emptyset}$;
+
+$A_1 \cup \dots \cup A_n = B_1 \cup \dots \cup B_n$ i
+  $\forall_{1 \leq i \leq n}|A_i| = |B_i| =r \Rightarrow \mathcal{A}$ i
+  $\mathcal{B}$ mają SRR;

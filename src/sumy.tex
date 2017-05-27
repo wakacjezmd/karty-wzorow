@@ -1,0 +1,94 @@
+\section{Sumy}
+
+${S_n = \sum^{n}_{k = 0} a \cdot x^k} = {a \frac{1 - x^{n+1}}{1 - x}}$;
+
+\subsection{Sumowanie przez części}
+
+${\Delta f(x) = f(x + 1) - f(x)}$;
+${\Delta x^{\underline{n}}} = {n x^{\underline{n - 1}}}$;
+${\mathcal{S}^{b}_{a} f}={g |^b_a} = {\sum^{b - 1}_{k = a} f(k)}$;
+${\Delta (rt)} = {r \Delta t + E t \Delta r \text{, gdzie } E t(x)} =
+  {t(x + 1)}$;
+${\mathcal{S}^{b}_{a} r \Delta t}= {r t |^b_a - \mathcal{S}^b_a E t \Delta r}$;
+
+\subsection{Dwumian}
+
+${\binom{n}{k} = {\frac{n^{\underline{k}}}{k!}}}$;
+${\sum_{i = 0}^n \binom{n}{i} = 2^n}$;
+${\sum_{i = 0}^{n} (-1)^i \binom{n}{i} = [ n = 0 ]}$;
+$\binom{n}{k} = \binom{n}{n - k}$;
+
+$\binom{n}{k} = \frac{n}{k} \binom{n - 1}{k - 1}$;
+
+${(x + y)^n = \sum_{i \geq 0} \binom{n}{i} x^i y^{n-i}, n \in \mathbb{N}}$;
+
+${(1 + x)^r = \sum_{i \geq 0} \binom{r}{i} x^i, r \in \mathbb{R}, |x| < 1}$;
+
+$(x + y + z)^n =
+  \sum_{0 \leq a, b \leq n, a+b \leq n} \binom{n}{a,b} x^a y^b z^{n-a-b}$;
+
+$\binom{n}{a,b} = \binom{n}{a}\binom{n-a}{b} = \frac{n!}{a! b! (n - a - b)!}$;
+
+$\binom{n}{k}\binom{k}{i} = \binom{n}{i}\binom{n-i}{k-i}$;
+
+$\binom{n}{k} = \begin{cases}
+    1, k = 0 \text{ lub } k = n \\
+    \binom{n - 1}{k} + \binom{n - 1}{k - 1}, 0 < k < n
+\end{cases}
+$;
+
+% Tożsamość Cauchy'ego.
+Toż. (Cauchy): $\sum^k_{i=0}\binom{n}{i}\binom{m}{k - i} = \binom{n + m}{k}$;
+
+$\text{$\sum$ równoległe: } \sum^k_{i=0} \binom{y + i}{i} =
+  \binom{y + k + 1}{k}$;
+
+$(-1)^i\binom{x}{i} = \binom{i - 1 - x}{i} \text{, bo }  x^{\underline{i}} =
+  (-1)^i(i - 1 - x)^{\underline{i}}$;
+
+$a_n = \sum_i\binom{n}{i}(-1)^i b_i \iff b_n = \dots$;
+
+% Inwersje.
+\subsection{Inwersje}
+
+$\Pi = 1^{\lambda_1}2^{\lambda_2}\dots n^{\lambda_n}$, to $sgn(\Pi) =
+  (-1)^{\Sigma_i\lambda_{2i}}$;
+
+% Liczby Stirlinga I rodzaju.
+\subsection{Liczby Stirlinga}
+
+${n \brack k}$ - podziały $n$-zbioru na $k$ cykli (kolejność w cyklu istotna z
+  dokładnością do cyklicznego przesunięcia);
+
+${n \brack 0} = [ n = 0 ]$;
+${n \brack 1} = (n - 1)!, n > 0$;
+$\sum_k{n \brack k} = n!$;
+
+${n \brack k} = (n-1){n-1 \brack k}+{n-1 \brack k-1}$ dla ${k > 0}$;
+
+% Liczby Stirlinga II rodzaju.
+${n \brace k}$ - podziały $n$-zbioru na $k$ bloków;
+
+${n \brace 0} = [n = 0]$;
+${n \brace 1} = 1$;
+${n \brace 2} = 2^{n-1}-1$;
+
+${n \brace k} = k{n-1 \brace k} + {n-1 \brace k-1}$ dla ${k > 0}$;
+
+% Własności liczb Stirlinga.
+$x^n = \sum_k{n \brace k} x^{\underline{k}}$;
+
+$x^{\overline{n}} = \sum_k{n \brack k}x^k$;
+
+$(-x)^{\overline{k}} = (-1)^kx^{\overline{k}}$;
+
+$x^n = \sum_k {n \brace k} (-1)^{n-k} x^{\overline{k}}$;
+
+$x^{\underline{n}} = \sum_k {n \brack k} (-1)^{n-k} x^{k}$;
+
+$x^n = \sum_{i,k} {n \brace i}{i \brack k}(-1)^{n-i}x^k$;
+
+$\sum_i{n \brace i}{i \brack k}(-1)^{n-i} = [n=k] =
+  \sum_i{n \brack i}{i \brace k}(-1)^{n-i}$;
+
+$a_n = \sum_i{n \brace i}(-1)^ib_i \iff b_n = \sum_i{n \brack i}(-1)^ia_i$;
