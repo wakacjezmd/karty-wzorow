@@ -20,5 +20,7 @@ sudo apt-get install texlive-full
 ## Generowanie plików PDF
 
 ```bash
-pdflatex karta-wzorow.tex
+make
 ```
+
+Wygenerowany plik pojawi się w katalogu `build`.
