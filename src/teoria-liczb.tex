@@ -97,7 +97,10 @@ Tw. Eulera: $a\perp n \Rightarrow a^{\phi(n)} \equiv 1 \pmod{n}$;
 % Twierdzenie Wilsona.
 Tw. Wilsona: $p\in\mathbb{P} \Leftrightarrow (p-1)! \equiv -1 \pmod{p}$;
 
-% TODO: RSA.
+% RSA.
+Alg. RSA: $n=pq, e, M, e \perp \phi(n)$. Wtedy $E(M) = M^e \mod n$,
+  $d = e^{-1} \mod \phi(n)$, $D(C) = C^d \mod n$. Działa, bo
+  $(M^e)^d \mod n = \text{z tw. Eulera} = M^{ed \mod n} = M^1 \mod n$;
 
 % Test Millera-Rabina.
 Test Millera-Rabina: $\exists_{0<a<n}a^{n-1}\not\equiv 1 \pmod{n} \Rightarrow
