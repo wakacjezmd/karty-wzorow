@@ -1,6 +1,6 @@
 all:
 	mkdir -p build
-	pdflatex --output-directory build karta-wzorow.tex
+	pdflatex -halt-on-error -output-directory build karta-wzorow.tex
 
 clean:
 	rm -rf build
