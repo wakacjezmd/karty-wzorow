@@ -2,7 +2,6 @@
 
 % NWD.
 $NWD(a,b) = min_{+}\set{ax+by | x,y\in \mathbb{Z}}$;
-
 $a \perp b \Leftrightarrow NWD(a,b)=1$;
 
 % Algorytm Euklidesa.
@@ -77,7 +76,13 @@ $a \perp n \Rightarrow a^x = a^{x \mod \phi(n)} \mod n$;
       $NWD(7, 330) = \ldots \Rightarrow x_4 = 1$;
       (6) $x = 2\cdot 2 \cdot 770 + 7\cdot 1\cdot 231 + 10\cdot 1\cdot 210 +
       1\cdot 1\cdot 330$;
+
+      Ogólniej: $a^{\phi(p_1^{\alpha_1})} \equiv 1 \pmod{p_1^{\alpha_1}}$,
+      $a^{\phi(p_2^{\alpha_2})} \equiv 1 \pmod{p_2^{\alpha_2}} \Rightarrow
+      a^{NWW(\phi(p_1^{\alpha_1}),\phi(p_2^{\alpha_2}))} \equiv 1 \pmod{n}$,
+      gdzie $n=p_1^{\alpha_1}p_2^{\alpha_2}$;
 }}
+
 
 % Małe twierdzenie Fermata.
 MTF: ${p\in \mathbb{P} \land p\not | a} \Rightarrow a^{p-1} \equiv 1 \pmod{p}$,
