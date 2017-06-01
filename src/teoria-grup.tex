@@ -15,19 +15,68 @@ Gr. cykliczna $\Leftrightarrow$ przemienna;
 
 Każda podgr. gr. cyklicznej jest cykliczna;
 
-Gr., w której każdy elementy $\neq e$ ma rząd $2$, jest przemienna i ma rząd $2^k$;
+Gr., w której każdy elementy $\neq e$ ma rząd $2$, jest przemienna
+  i ma rząd $2^k$;
+
+Rząd elementu $r(g)$ to rząd generowanej przez niego grupy cyklicznej, czyli
+najmniejsze $k > 0$ t., że $g\cdot\overset{k}{\ldots}\cdot g=e$;
+
+Warstwa $G$ względem $H$ wyznaczona przez $g\in G$ to
+  $gH = \set{gh : h \in H}$. Warstwy są równoliczne z $H$
+  ($h \mapsto gh$ są 1--1) i tworzą podział zb. $G$;
+
+Z tego, że $d$ dzieli $|G|$, nie wynika, że $G$ ma podgr. rzędu $d$. Jednak
+jeśli $G$ jest cykliczna, to tak jest.
 
 % Twierdzenie (Lagrange).
 Tw. (Lagrange): Rząd podgr. $H$ gr. skończonej $G$ dzieli rząd $G$;
 
 $G$ cykliczna ma $\phi(n)$ generatorów;
 
-Tw.: $s(d)$, to l. elem. rzędu $d$ w $G$. $s(d) =$ if $d \not{|} n$ then $0$
-  else $\phi(d)$;
+Tw.: $s(d)$, to l. elem. rzędu $d$ w $G$. $s(d) = 0$ jeżeli $d \not{|} n$
+  wpp $\phi(d)$;
 
 % Twierdzenie (Cayley).
 Tw. (Cayley): $S(Y)$, to zbiór bijekcji $Y \rightarrow Y$ ze składaniem
   ($S_n$ dla $Y=\set{1,\dots,n}$). Każda gr. rzędu $n$ jest izomorf. z pewną
-  podgr.  $S_n$;
+  podgr. $S_n$;
 
-% TODO: Dokończyć teorię grup. Slajd 216.
+Działanie $G$ na zb. $X$ --- homomorfizm $h: G \rightarrow S(X)$ (wierne,
+jeżeli $h$ jest 1--1). Piszemy $gx$ zamiast $(h(g))(x)$;
+
+Relacja $G\text{-równoważności na } X$:
+  $x \sim_G x' \text{, jeśli } \exists_{g\in G} x' = gx$;
+
+Orbita $x \in X$ to jego kl. abstr. $Gx=\set{gx:g\in G}$;
+
+Stabilizator $x \in X$ to podgr. $G_x = \set{g\in G: gx = x}$ grupy $G$;
+
+Zb. punktów stałych $g \in G$ to podzb. $X_g = \set{x\in X: gx=x}$ zbioru $X$;
+
+Tw. (Burnside): L. orbit $=$ średnia liczba punktów stałych
+  $=\frac{1}{\abs{G}}\sum_{g\in G}\abs{X_g}$;
+
+Warstwy $G$ względem $G_x \leftrightsquigarrow$ elementry orbity $Gx$;
+$\abs{G} = \abs{G_x} \cdot \abs{Gx}$;
+
+Kolorowanie zb. $X$ to $f: X\rightarrow K$, gdzie $K$ to zb. kolorów
+  $\abs{K} = k$. Jeśli $G$ działa na $X$ (jest pewną gr. permutacji $X$), to
+  rozszerzamy działanie $G$ na zb. kolorowań $F$ wzorem $gf=f\circ g^{-1}$.
+  Niech $c(g)$ ozn. liczbę cykli w perm. $g$; Fakt: Liczba nierównoważnych
+  kolorowań to $\frac{1}{\abs{G}}\sum_{g\in G}k^{c(g)}$;
+
+Opis struktury cykli w gr. perm. $G \subseteq S_n$, to f. t. od $n$ zmiennych,
+  zwana indeksem cyklowym: $I_G(x_1,/ldots,x_n)=
+  \frac{1}{\abs{G}}\sum_{g\in G}x_1^{g_1}\cdot\ldots\cdot x_n^{g_n}$, gdzie
+  $g_i$ to l. cykli długości $i$ w perm. $g$ (i. c. zależy od działania gr.
+  na konkretnym zbiorze i samej grupy). Przykład: liczba nierównoważnych
+  kolorowań za pomocą $k$ kolorów to $|_G(k,\ldots,k)$;
+
+Chcemy wyznaczyć liczbę kolorowań z użyciem ustalonych liczb
+  poszczególnych kolorów. Zbiór kolorów $K$ potraktujemy jako zb. zmiennych
+  formalnych $\set{t_1,\ldots,t_k}$. Definiujemy wagę kolorowania
+  $f: w(f) = t_1^{a_1}\cdot\ldots\cdot t_k^{a_k}$, jeśli $f$ nadaje kolor $t_i$
+  dokładnie $a_i$ elementom.
+
+Tw. (Polya): Enumeratorem stanowiącym sumę wag kolorowań nierównoważnych wzgl.
+  $G$ jest $I_G(\sum_{t\in K}t, \sum_{t\in K}t^2, \ldots, \sum_{t\in K}t^n)$
