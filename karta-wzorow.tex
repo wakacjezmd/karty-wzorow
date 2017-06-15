@@ -15,6 +15,7 @@
 \usetikzlibrary{tikzmark}
 
 \newcommand{\angles}[1]{\left\langle #1 \right\rangle}
+\newcommand{\entry}{$\bullet$\hspace{0.15em}}
 
 \titlespacing{\section}{0pt}{0pt}{0pt}
 \titlespacing{\subsection}{0pt}{0pt}{0pt}
@@ -26,23 +27,6 @@
 \setlength{\parindent}{0pt}
 % Odległość pomiędzy liniami. Zmniejsz, jeżeli brakuje miejsca.
 \setlength{\parskip}{0.5ex}
-
-% Dodaj kropkę przed każdym paragrafem. \everypar musi być odświeżany na
-% początku każdej sekcji, podsekcji, etc.
-% Źródła:
-% - https://tex.stackexchange.com/a/159158/80219
-% - https://tex.stackexchange.com/a/119761/80219
-\let\OriginalSection\section
-\renewcommand{\section}[1]{
-  \OriginalSection{#1}
-  \everypar={$\bullet$\hspace{0.15em}}
-}
-
-\let\OriginalSubSection\section
-\renewcommand{\subsection}[1]{
-  \OriginalSubSection{#1}
-  \everypar={$\bullet$\hspace{0.15em}}
-}
 
 \title{Karta wzorów z matematyki dyskretnej}
 

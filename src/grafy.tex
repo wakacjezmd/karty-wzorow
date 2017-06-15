@@ -1,129 +1,178 @@
 \section{Grafy}
 
+\entry
 Lem. o uściskach dł.: $\sum_{v\in V} deg(v) = 2|E|$;
 
+\entry
 $H$ podgrafem indukowanym $G
   \iff \forall_{u,v \in V[H]} \set{u, v} \in E[G] \implies \set{u, v}\in E[H]$;
 
+\entry
 Droga nie powtarza krawędzi, a ścieżka wierzchołków;
 
+\entry
 $G$ spójny $\iff \forall_{u,v\in V[G]} \exists e_{uv}$;
 
+\entry
 $G$ $k$-reguralny $\iff \forall_v deg(v) = k$;
 
+\entry
 $G$ dwudzielny, gdy $V[G] = V_1 \cup V_2, V_1 \cap V_2 = \emptyset$ i każda
   krawędź ma jeden koniec w $V_1$, a drugi w $V_2$;
 
+\entry
 $K_{|V|, |U|}$ pełny dwudzielny, gdy $E=\set{\set{v, u}, v \in V, u \in U}$;
 
+\entry
 $v$ rozcinający, gdy usunięcie $v$ zwiększa l. spójnych s.;
 
+\entry
 Tw.: $G$ dwudzielny $\iff$ nie zawiera cykli nieparz. dł.;
 
 \subsection{Cykle}
 
+\entry
 C. E. --- krawędzie; C. H. --- wierzchołki; Graf h. --- graf z c. H.;
 
+\entry
 Tw. Eulera: $G$ ma c. E. $\iff \forall_{v \in V[G]} 2|deg(v)$;
 
+\entry
 Tw.: Silnie spójny $G$ ma skierowany c. E.
   $\iff \forall_{v \in V[G]} deg_{in}(v) = deg_{out}(v)$;
 
+\entry
 $G$ ma c. H., to po usunięciu dow. k wierz. rozpada się na co najw.
   k spójnych s.;
 
+\entry
 $G = \angles{V, U; E}$ dwudzielny ma c. H., to $|V|=|U|$;
 
-Tw.: Każdy turniej jest półhamilton.;
+\entry
+Tw.: Każdy turniej jest półhamilton. (zawiera ś. H.);
 
+\entry
 Tw.: Turniej ma c. H. $\iff$ jest silnie spójny;
 
+\entry
 Tw.: Turniej spójny, to ma c. H.;
 
+\entry
 Tw. (Ore): $n=|V|\geq 3$ i
   $\forall_{\set{v, w} \not\in E} deg(v) + deg(w) \geq n$, to $G$ ma c. H.;
 
+\entry
 Każdy turniej hamiltonowski jest silnie spójny;
 
+\entry
 $G$ silnie spójny $\Rightarrow$ $G$ zawiera skierowany $k\text{-cykl}$;
 
 \subsection{Drzewa}
 
+\entry
 Tw. (Cayley): Jest $n^{n-2}$ etykietowanych drzew $n$-wierzchołkowych;
 
 \subsection{Planarność}
 
+\entry
 Wz. Eulera: $n - m + f = 2$, gdzie $m = |E[G]|$;
 
+\entry
 Tw.: W grafie plan. z $n \geq 3$ mamy $m \leq 3n -6$;
 
+\entry
 Tw. Kuratowskiego: $G$ nieplan. $\iff G$ zawiera podgraf homeomorficzny
   z $K_{3,3}$ lub z $K_5$ (homeomorficzny, czyli
   izomorficzny po ew. dołożeniu wierzchołków na krawędziach);
 
+\entry
 $G$ planarny $\implies \exists_{v \in G[V]} deg(v) \leq 5$;
 
 \subsection{Kolorowanie wierzchołków}
 
+\entry
 Kolorowanie $G$ za pomocą $k$ kolorów to
   $f: V[G] \rightarrow \set{1, \dots, k}$ t., że $f(u) \neq f(v)$ dla
   $\set{u, v} \in E[G]$. Najm. k t., że $\exists k$-kolorowanie $G$ to liczba
   chromatyczna $\chi (G)$.
 
+\entry
 $\chi(G) \leq 2 \Leftrightarrow G$ dwudzielny;
 
+\entry
 $\chi(G) \leq k \Leftrightarrow \chi(G) \leq k$ dla każdej dwuspójnej s. $B$
   grafu $G$;
 
+\entry
 Tw. o 4 barwach: $G$ plan. $\implies\chi(G)\leq 4$;
 
+\entry
 Tw. Brooksa: $G$ spójny, nie cykl nieparz. dł., nie klika, to
   $\chi(G) \leq \Delta$, gdzie $\Delta$ to maks. stop. wierz. w $G$;
 
+\entry
 Tw.: $\chi(G) \leq \Delta + 1$;
 
+\entry
 $f_G(t)$ --- wielomian chrom. (liczba kolorowań $G$ za pomocą $t$ kolorów);
 
+\entry
 W. ch.:
+\entry
 $K_n$ --- $t^{\underline{n}}$,
+\entry
 $\overline{K_n}$ --- $t^n$,
+\entry
 $\text{Drzewo}_n$ --- $t(t-1)^{n-1}$,
+\entry
 $\text{Cykl}_n$ --- $(t-1)^n + (-1)^n(t-1)$,
+\entry
 $K_{n,m}$ --- $\sum_{a,b}{n \brace a}{m \brace b}t^{\underline{a+b}}$;
 
+\entry
 Tw.: $e = \set{v, w} \not\in E[G]$, to $f_G(t)=f_{G\cup e}(t) + f_{G/e}(t)$;
 
 \subsection{Kolorowanie krawędzi}
 
+\entry
 Funkcja $f: E[G] \rightarrow \set{1, \dots, k}$ to kolorowanie krawędziowe,
   jeśli kraw. incydentne mają różne kolory. Indeks chromatyczny $\chi_e(G)$ to
   najmniejsze $k$, dla którego istnieje $k$-kolorowanie kraw.;
 
+\entry
 Tw. Vizinga: $\forall_G \chi_e(G) \leq \Delta(G) +1$;
 
+\entry
 Tw. (K{\"o}nig): $G$ dwudzielny, to $\chi_e(G) = \Delta(G)$;
 
 \subsection{Systemy różnych reprezentantów}
 
+\entry
 SSR dla rodziny zbiorów $\angles{A_i}_{i\in I},$ to ciąg elem.
   $\angles{a_i}_{i\in I}$ t., że
   $\forall_{i\in I} a_i \in A_i$ oraz $a_i \neq a_j$
   (skojarzenia w g. dwudzielnym);
 
+\entry
 Tw. (Hall): SRR dla skończonej r. zb. skończonych $\angles{A_i}_{i=1}^n,$
   istnieje
   $\iff \forall_{J\subseteq\set{1,\dots,n}} |\bigcup_{j\in J}A_j| \geq |J|$;
 
+\entry
 $G$ dwudzielny $r$-regularny $\Rightarrow r$-kolorowalny kraw.;
 
+\entry
 $G$ dwudzielny, regularny ma pełne skojarzenie;
 
+\entry
 $G$ $(n-m)$-regularny $\Rightarrow \exists$ pełne skojarzenie;
 
+\entry
 Tw.: Podziały $\mathcal{A}$ i $\mathcal{B}$ mają wspólny SRR $\Leftrightarrow
   \forall_{J\subseteq I} |\bigcup_{j\in J}g(A_j)| \geq |J|$, gdzie
   $g(C) = \set{j | C \cap B_j \neq \emptyset}$;
 
+\entry
 $A_1 \cup \dots \cup A_n = B_1 \cup \dots \cup B_n$ i
   $\forall_{1 \leq i \leq n}|A_i| = |B_i| =r \Rightarrow \mathcal{A}$ i
   $\mathcal{B}$ mają SRR;

@@ -1,34 +1,46 @@
 \section{Podział liczby / enumerator podziałów}
 
+\entry
 Podział liczby $n$ to przedstawienie $n$ jako sumy nierosnących dod. skład.;
 
+\entry
 $P(n, 2) = \lfloor\frac{n}{2}\rfloor$;
+\entry
 $\frac{1}{k!}\binom{n-1}{k-1} \leq P(n,k) \leq \binom{n-1}{k-1}$;
 
+\entry
 L. podz. $n$ na $\leq k$ skład. $\leftrightsquigarrow$
   l. podz. $n+k$ na dokł. $k$ skład.;
 
+\entry
 Enum. podziałów $P(x) = \sum_nP_nx^n =
   (1+x+x^2+\dots)\cdot(1+x^2+x^4+\dots)\dots(1+x^k+\dots)\dots =
   \frac{1}{(1-x)(1-x^2)\dots(1-x^k)\dots}$, gdzie wybranie z $k$-tego nawiasu
   $x^{ik} \leftrightsquigarrow$ wzięciu do podziału $i$ razy składnika $k$;
 
+\entry
 Enum. podz. o składnikach $\leq k$: $p_{\leq k} (x) =
   \frac{1}{(1-x)(1-x^2)\dots(1-x^k)}$;
 
+\entry
 Enum. podz. 1 zł na grosze:
   $\left [ x^{100} \right ]
   \frac{1}{(1-x)(1-x^2)(1-x^5)(1-x^{10})(1-x^{20})(1-x^{50})}$;
 
+\entry
 Enum. podz. na składniki $>1$: $\frac{1}{(1-x^2)(1-x^3)\dots}=(1-x)P(x) =
   P_n - P_{n-1}, n>0$;
 
+\entry
 Enum. podz. o różnych s.: $r(x) = (1+x)(1+x^2)(1+x^3)\dots$;
 
+\entry
 Enum. podz. o nieparz. s.: $n(x)=\frac{1}{(1-x)(1-x^3)\dots}$;
 
+\entry
 Tw.: $\#$ podz. $n$ na różne s. $= \#$ podz. na nieparz. s.: $n(x) = r(x)$;
 
 % TODO: Przykład użycia.
+\entry
 Toż. Eulera: $nP_n = \sum_{k=0}^{n-1}\sigma(n-k)P_k$,
   gdzie $\sigma = \sum_{k|n}k$;

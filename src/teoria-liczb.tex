@@ -1,10 +1,13 @@
 \section{Teoria liczb}
 
 % NWD.
+\entry
 $NWD(a,b) = min_{+}\set{ax+by | x,y\in \mathbb{Z}}$;
+\entry
 $a \perp b \Leftrightarrow NWD(a,b)=1$;
 
 % Algorytm Euklidesa.
+\entry
 Alg. Euklidesa: $NWD(a,b)=ax+by$. Jeśli $b=0$, to
   $\angles{x,y} \angles{1,0}$, wpp
   $NWD(a,b) = NWD(b, a \mod b) = bx' + (a \mod b)y'$
@@ -12,6 +15,7 @@ Alg. Euklidesa: $NWD(a,b)=ax+by$. Jeśli $b=0$, to
 
 % Tabelka z przykładem działania algorytmu Euklidesa.
 % TODO: Dodaj ramkę.
+\entry
 \begin{tabular}{c c c c}
     20& 56 & 3\tikzmark{aedst3} &-1 \\
     16& 20 & -1\tikzmark{aedst2} &\tikzmark{aesrc3}1 \\
@@ -27,26 +31,35 @@ Alg. Euklidesa: $NWD(a,b)=ax+by$. Jeśli $b=0$, to
 \end{tikzpicture}
 
 % Podstawowe wiadomości z teorii liczb.
+\entry
 $a = \prod^m_{i=1}p_i$;
 
+\entry
 ${a | bc \land a \perp b} \Rightarrow {a | c}$
 
+\entry
 ${NWW(a,b)} = {ab/NWD(a,b)} = {\prod^k_{i=1}p_i^{max(\alpha_i, \beta_i)}}$;
 
+\entry
 ${a \equiv_{n} b}$ oraz ${c \equiv_{n} d} \implies
   {a+c\equiv_n b+d}$ oraz ${a\cdot c \equiv_n b\cdot d}$;
 
+\entry
 ${d \perp n} \land {ad \equiv bd \pmod{n}} \Rightarrow {a \equiv b \pmod{n}}$;
 
+\entry
 ${ad \equiv bd \pmod{nd}} \Leftrightarrow {a\equiv b \pmod{n}}$;
 
+\entry
 ${b = a^{-1} \pmod{n}} \Leftrightarrow {ab \equiv 1 \pmod{n}}$;
 
+\entry
 ${n \perp m} \implies
   {\left( a\equiv b \pmod{n} \land a \equiv b \pmod{m} \Leftrightarrow
   a\equiv b \pmod{nm} \right)}$ (ugogólnia się na dow. liczbę parami wzgl.
   pierwszych modułów $n_1,\ldots,n_k$);
 
+\entry
 $a \perp n \Rightarrow a^x = a^{x \mod \phi(n)} \mod n$;
 
 % Chińskie twierdzenie o resztach.
@@ -85,35 +98,45 @@ $a \perp n \Rightarrow a^x = a^{x \mod \phi(n)} \mod n$;
 
 
 % Małe twierdzenie Fermata.
+\entry
 MTF: ${p\in \mathbb{P} \land p\not | a} \Rightarrow a^{p-1} \equiv 1 \pmod{p}$,
   inaczej $a^p \equiv a \pmod{p}$;
 
 % Funkcja Eulera.
+\entry
 F. Eulera: $\phi: \mathbb{N} \rightarrow \mathbb{N}$ t., że
   $\phi(n)=|\mathbb{Z}^*_n|=|\set{1\leq k\leq n : k \perp n}|$;
 
+\entry
 $p \in \mathbb{P} \Rightarrow \phi(p^k)=p^k-p^{k-1}$;
 
+\entry
 $m\perp n \Rightarrow \phi(mn) = \phi(m)\phi(n)$, np.:
   $\phi(2016) = \phi(2^3)\phi(3^2)\phi(7) =
   2016(1-\frac{1}{2})(1-\frac{1}{3})(1-\frac{1}{7})$;
 
+\entry
 $\phi(n) = n\prod_{\mathbb{P} \ni p | n}(1- 1/p)$;
 
+\entry
 $\sum_{d|m}\phi(d) = m$;
 
 % Twierdzenie Eulera.
+\entry
 Tw. Eulera: $a\perp n \Rightarrow a^{\phi(n)} \equiv 1 \pmod{n}$;
 
 % Twierdzenie Wilsona.
+\entry
 Tw. Wilsona: $p\in\mathbb{P} \Leftrightarrow (p-1)! \equiv -1 \pmod{p}$;
 
 % RSA.
+\entry
 Alg. RSA: $n=pq, e, M, e \perp \phi(n)$. Wtedy $E(M) = M^e \mod n$,
   $d = e^{-1} \mod \phi(n)$, $D(C) = C^d \mod n$. Działa, bo
   $(M^e)^d \mod n = \text{z tw. Eulera} = M^{ed \mod n} = M^1 \mod n$;
 
 % Test Millera-Rabina.
+\entry
 Test Millera-Rabina: $\exists_{0<a<n}a^{n-1}\not\equiv 1 \pmod{n} \Rightarrow
   n \not\in \mathbb{P}$ (słaby, bo liczby Carmichaela);
 

@@ -1,50 +1,65 @@
 % Funkcje tworzące.
 \section{Funkcje tworzące}
 
+\entry
 $\alpha A(x) + \beta B(x) \leftrightsquigarrow \angles{\alpha a_n + \beta b_n}$;
 
+\entry
 $x^mA(x) \leftrightsquigarrow
   \angles{\underbrace{0, \dots, 0}_m, a_0, a_1, \dots}$;
 
+\entry
 $\frac{A(x) - \sum_{i=0}^{m-1}a_ix^i}{x^m} \leftrightsquigarrow
   \angles{a_m, a_{m+1}, \dots}$;
 
+\entry
 $A(x) \cdot B(x) =
   \sum_n \sum_k a_kb_{n-k}x^n \leftrightsquigarrow
   \angles{\sum_k a_k b_{n-k}}_n$;
 
+\entry
 $A'(x) = a_1 + 2a_2x + \dots \leftrightsquigarrow = \angles{(n+1)a_{n+1}}_n$;
 
+\entry
 $\int_0^xA(t)dt \leftrightsquigarrow \angles{\frac{a_{n-1}}{n}}_{n \geq 1}$;
 
 \subsection{Przykłady funkcji tworzących}
 
+\entry
 $\angles{1,1,\dots} \leftrightsquigarrow \frac{1}{1-x}$;
 
+\entry
 $\angles{a_n} \cdot \angles{1,1,\dots} = \angles{a_0 + \dots + a_n}_n$;
 
+\entry
 $\frac{1}{(1-x)^k} \leftrightsquigarrow \angles{\binom{n + k -1}{k - 1}}_n$;
 
+\entry
 $ln \frac{1}{1-x} \leftrightsquigarrow
   \angles{0, 1, \frac{1}{2}, \frac{1}{3}, \dots}$;
 
 \subsection{Wykładnicze funkcje tworzące}
 
+\entry
 $B_e(x) = \sum_n \frac{b_nx^n}{n!}$;
 
+\entry
 $A_e(x) \cdot B_e(x) =
   \sum \left ( \sum_k \binom{n}{k} a_k b_{n-k} \right ) x^n / n!$;
 
+\entry
 $B'e(x) = \sum_n b_{n+1} x^n/n!$;
 
+\entry
 $\int^x_0 \sum_{n \geq 0} b_nt^ndt = \sum_{n \geq 1} b_{n-1}x^n/n!$;
 
+\entry
 $\frac{C}{(1-\lambda x)^k} =
   \sum_{n\geq 0} C \binom{n + k - 1}{k - 1} \lambda^n x^n$;
 
 % TODO: Dodaj przykład rozwiązania równania rekurencyjnego przy pomocy f.t.
 
-
+\entry
 Proste ciągi i ich funkcje tworzące:
 \begin{tabular}{ | l | l | l |  }
     \hline

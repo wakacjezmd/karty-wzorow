@@ -45,8 +45,10 @@
 
 \subsection{Liczby Catalana}
 
+\entry
 $C_n$ - liczba nawiasowań w wyr. $x_0 \cdot x_1 \cdot \dots \cdot x_n$;
 
+\entry
 $C_n = \sum_kC_kC_{n-1-k} + [n=0]$,
   skąd $C(x) = \sum_n C_nx^n = x(C(x))^2 + 1, C(0) = 1$,
   więc $C(x) = \frac{1 - \sqrt{1-4x}}{2x}$, a zatem $C(x) =
@@ -54,8 +56,10 @@ $C_n = \sum_kC_kC_{n-1-k} + [n=0]$,
 
 \subsection{Liczby Bella}
 
-${B_n = \sum_k{n \brace k}}$ - łączna l. podziałów n-zbioru na bloki;
+\entry
+${B_n = \sum_k{n \brace k}}$ - łączna l. podziałów $n$-zbioru na bloki;
 
+\entry
 ${B_{n+1} = \sum_k \binom{n}{k} B_k}$, skąd $B'(x) = e^xB(x), B(0) = 1$,
   gdzie $B(x) = \sum_n B_nx^n/n!$. Całkujemy i dostajemy $ln B = e^x + c$,
   skąd $B(x) = e^{e^x-1} =
@@ -65,24 +69,31 @@ ${B_{n+1} = \sum_k \binom{n}{k} B_k}$, skąd $B'(x) = e^xB(x), B(0) = 1$,
 % Enumeratory.
 \subsection{Enumeratory kombinacji}
 
-$\underbrace{(1+t)\dots(1+t)}_n = \sum_r\binom{n}{r}t^r$;
+\entry
+$(1+t)\cdot\overset{n}{\ldots}\cdot(1+t) = \sum_r\binom{n}{r}t^r$;
 
+\entry
 Kombinacja z dowolnymi powt.: $(1+t+t^2+\dots)^n=(1-t)^{-n}=
   \sum_r\binom{-n}{r}{-t}^r=\sum_r\binom{n+r-1}{r}t^r$;
 
+\entry
 Każdy elem. co najmniej raz: $(t+t^2+\dots)^n = t^n\sum_r {n+r-1 \over r}t^r =
   \sum^\infty_{r=n}\binom{r-1}{n-1}t^r$;
 
 \subsection{Enumeratory permutacji}
 
-r-permu. bez powt.: $(1+t)^n = \sum_rn^{\underline{r}}{t^r \over r!}$;
+\entry
+$r$-perm. bez powt.: $(1+t)^n = \sum_rn^{\underline{r}}{t^r \over r!}$;
 
+\entry
 Dow. l. powt.: ${(1+t+t^2/2! + \dots)^n} = {(e^{t})^n} =
   {\sum_rn^r{t^r \over r!}}$;
 
+\entry
 Każdy elem. co najmniej raz: $(t + t^2/2! + \dots)^n = (e^t - 1)^n =
   \sum^\infty_{r=0}\frac{t^r}{r!}\sum^n_{j=0}\binom{n}{j}(-1)^j(n-j)^r$;
 
+\entry
 Ciąg $A$, $B$, $C$ długości $r$ t., że $\#A>0$, $2\mid\#B$. Traktuj jako r-permu.
   z powt.:
   $\overbrace{(e^t - 1)}^A\cdot\overbrace{((e^t - e^{-t})/2)}^B
