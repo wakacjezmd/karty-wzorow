@@ -17,6 +17,23 @@
 \newcommand{\angles}[1]{\left\langle #1 \right\rangle}
 \newcommand{\entry}{$\bullet$\hspace{0.15em}}
 
+% Automatyczne generowanie listy liczby pierwszych:
+% https://tex.stackexchange.com/a/134320/80219
+\makeatletter
+\def\primes#1#2{{%
+  \def\comma{\def\comma{, }}%
+  \count@\@ne\@tempcntb#2\relax\@curtab#1\relax
+  \@primes}}
+\def\@primes{\loop\advance\count@\@ne
+\expandafter\ifx\csname p-\the\count@\endcsname\relax
+\ifnum\@tempcntb<\count@\else
+  \ifnum\count@<\@curtab\else\comma\the\count@\fi\fi\else\repeat
+\@tempcnta\count@\loop\advance\@tempcnta\count@
+\expandafter\let\csname p-\the\@tempcnta\endcsname\@ne
+\ifnum\@tempcnta<\@tempcntb\repeat
+\ifnum\@tempcntb>\count@\expandafter\@primes\fi}
+\makeatother
+
 \titlespacing{\section}{0pt}{0pt}{0pt}
 \titlespacing{\subsection}{0pt}{0pt}{0pt}
 \titlespacing{\subsubsection}{0pt}{0pt}{0pt}
