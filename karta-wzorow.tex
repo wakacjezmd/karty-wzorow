@@ -15,7 +15,13 @@
 \usetikzlibrary{tikzmark}
 
 \newcommand{\angles}[1]{\left\langle #1 \right\rangle}
+
+
 \newcommand{\entry}{$\bullet$\hspace{0.15em}}
+\newcommand{\subentry}{$\circledcirc$\hspace{0.15em}}
+% https://tex.stackexchange.com/a/7045/80219
+\newcommand{\textsubentry}[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1pt] (char) {#1};\hspace{0.15em}}}
 
 % Automatyczne generowanie listy liczby pierwszych:
 % https://tex.stackexchange.com/a/134320/80219
