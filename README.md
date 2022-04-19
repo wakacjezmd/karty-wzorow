@@ -1,5 +1,4 @@
 # Karty wzorów z matematyki dyskretnej (fork z wakacje z md)
-Dodałem wieżomiany.
 
 ## Instalacja pakietu LaTeX
 
