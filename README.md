@@ -1,4 +1,4 @@
-# Karty wzorów z matematyki dyskretnej (fork z wakacje z md)
+# Karty wzorów z matematyki dyskretnej
 
 ## Instalacja pakietu LaTeX
 
